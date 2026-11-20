@@ -1,0 +1,21 @@
+
+name: Update Between Malls Map
+
+on:
+  schedule:
+    # Every day at 12:30 JST (03:30 UTC)
+    - cron: '30 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-map:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check setup
+        run: echo "Between Malls scheduled check is running"
